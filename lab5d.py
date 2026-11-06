@@ -1,14 +1,25 @@
-# Add comments before you do anything else.
 #!/usr/bin/env python3
-# Author:
-# Date:
+# Author:Aaradhya Shrestha  
+# Date: 2026-11-05
 # Purpose: Process File data.
 # Usage: ./lab5d.py
 
-# TODO 1: Create pathing variables for your pythonStatements.txt and machineCode.txt files
-
-# TODO 2: Strip all leading and trailing spaces, as well as comments from pythonStatements.txt
-
-# TODO 3: Write the pure python statement with its corresponding machine code statement in a new file called "output.txt"
-
-# TODO 4: Make sure you add a tab between the python statement and its corresponding machine code when writing in output.txt
+statements_path= 'pythonStatements.txt'
+machine_path= 'machineCode.txt'
+output_path= 'output.txt'
+statements_file = open(statements_path, 'r')
+machine_file=open(machine_path, 'r')
+output_file= open(output_path, 'w')
+statement= statements_file.readline()
+code = machine_file.readline()
+while statement != '' and code != '':
+    statement =statement.split('#')[0].strip()
+    code= code.strip()
+    output_file.write(statement + '\t' + code + '\n')
+    print (statement + '\t' + code)
+    statement = statements_file.readline()
+    code= machine_file.readline()
+statements_file.close()
+machine_file.close()
+output_file.close()
+print("output.txt has been created")
