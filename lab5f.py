@@ -1,17 +1,21 @@
 # Add comments before you do anything else.
 #!/usr/bin/env python3
-# Author:
-# Date:
+# Author:Aaradhya Shrestha
+# Date:2026-11-5
 # Purpose: Catch ZeroDivisionError
 # Usage: ./lab5f.py
 
-# TODO 1: Complete the given functions.
 def safe_divide(a,b):
-  # - divide a by b
-  # - Add an exception block to raise the error if error occurs because of a zero denominator.
-  # - Except block should display the appropriate error messages
+  try:
+    if b==0:
+      raise ZeroDivisionError ('cannot divide ' + str(a) + ' by zero')
+    result= a/b
+    print(a, '/', b, '=', result)
+    return result
+  except ZeroDivisionError as e:
+    print('Error: ', e)
 
 def main():
-  safe_divide(10,5)  # works
-  safe_divide(10,0)  # exception : Zero Division Error
-  
+  safe_divide(10,5)  
+  safe_divide(10,0)
+main()  
