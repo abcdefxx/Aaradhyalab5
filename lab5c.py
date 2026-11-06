@@ -1,10 +1,16 @@
-# Add comments before you do anything else.
 #!/usr/bin/env python3
-# Author:
-# Date:
+# Author:Aaradhya Shrestha
+# Date:2026-11-05
 # Purpose: Process File data.
 # Usage: ./lab5c.py
 
-# TO DO 1: Run the code provided in readme.md file.
-# TO DO 2: Open rhyme.txt file.
-# TO DO 3: Print the output as directed in readme.md file.
+with open("rhyme.txt", "w") as dataFile :
+  dataFile.write("I made myself a snowball\nAs perfect as could be.\nI thought I'd keep it as a pet\nAnd let it sleep with me.")
+f= open("rhyme.txt", "r")
+line = f.readline()
+while line != '':
+  line= line.strip().strip('.')
+  words = line.split()
+  print(line, '---', len(words), 'words')
+  line = f.readline()
+f.close()
